@@ -11,4 +11,3 @@ variable "instance_size" {}
 variable "nat_ip" {}
 variable "sa_to_gcp" {}
 variable "scopes_gcp" {}
-variable "metadata_startup_script" {}
