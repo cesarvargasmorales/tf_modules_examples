@@ -8,6 +8,7 @@ env:
   tf_version: 1.0
   tf_working_dir: '.'
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  BRANCH_NAME: "main"
 
 jobs:
   terraform:
