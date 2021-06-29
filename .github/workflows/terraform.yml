@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: configure gcloud
         id: config_gcloud
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@master
         with:
           version: "latest"
           service_account_email: ${{ secrets.GCP_SA_EMAIL }}
@@ -27,7 +27,7 @@ jobs:
 
       - name: set GCP project
         id: config_project
-        run: gcloud config set project xxxx
+        run: gcloud config set project aesthetic-fx-223420
 
       - name: "Terraform Init"
         id: terraform_init
