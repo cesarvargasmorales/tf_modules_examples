@@ -60,7 +60,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ${{ env.tf_actions_working_dir }}
+        working-directory: ./gcp
 
     steps:
     # Checkout the repository to the GitHub Actions runner
