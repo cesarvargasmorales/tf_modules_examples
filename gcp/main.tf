@@ -38,7 +38,6 @@ module "instances-group-gcp" {
   nat_ip                  = var.nat_ip
   sa_to_gcp               = module.service_account.sa_email
   scopes_gcp              = var.scopes_gcp
-  metadata_startup_script = data.template_file.init_script.rendered
 }
 
 module "service_account" {
