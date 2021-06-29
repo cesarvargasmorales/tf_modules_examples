@@ -35,8 +35,6 @@ resource "google_compute_instance_template" "instance_template" {
     email  = data.google_service_account.sa.email
     scopes = [var.scopes_gcp]
   }
-
-  metadata_startup_script = var.metadata_startup_script
 }
 
 resource "google_compute_instance_group_manager" "instance_group_manager" {
