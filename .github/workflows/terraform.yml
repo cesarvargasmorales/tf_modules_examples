@@ -5,7 +5,7 @@ on:
     - main
 
 env:
-  tf_version: 1.0
+  tf_version: 1.0.1
   tf_working_dir: '.'
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
   BRANCH_NAME: "main"
@@ -40,7 +40,7 @@ jobs:
         id: terraform_init
         uses: ops18/terraform-github-actions@master
         with:
-          tf_actions_version: 1.0
+          tf_actions_version: 1.0.1
           tf_actions_comment: "false"
           tf_actions_working_dir: '.'
           tf_actions_subcommand: init
@@ -50,7 +50,7 @@ jobs:
         id: terraform_validate
         uses: ops18/terraform-github-actions@master
         with:
-          tf_actions_version: 1.0
+          tf_actions_version: 1.0.1
           tf_actions_comment: "false"
           tf_actions_working_dir: '.'
           tf_actions_subcommand: validate
@@ -60,7 +60,7 @@ jobs:
         id: terraform_plan
         uses: ops18/terraform-github-actions@master
         with:
-          tf_actions_version: 1.0
+          tf_actions_version: 1.0.1
           tf_actions_comment: "false"
           tf_actions_working_dir: '.'
           tf_actions_subcommand: plan
