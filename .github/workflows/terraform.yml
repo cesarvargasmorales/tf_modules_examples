@@ -35,7 +35,7 @@ jobs:
         with:
           tf_actions_version: 1.0
           tf_actions_comment: "false"
-          tf_actions_working_dir: environments/${{ env.BRANCH_NAME }}
+          tf_actions_working_dir: "./gcp"
           tf_actions_subcommand: init
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY}}
@@ -45,7 +45,7 @@ jobs:
         with:
           tf_actions_version: 1.0
           tf_actions_comment: "false"
-          tf_actions_working_dir: environments/${{ env.BRANCH_NAME }}
+          tf_actions_working_dir: "./gcp"
           tf_actions_subcommand: validate
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY}} 
@@ -55,7 +55,7 @@ jobs:
         with:
           tf_actions_version: 1.0
           tf_actions_comment: "false"
-          tf_actions_working_dir: environments/${{ env.BRANCH_NAME }}
+          tf_actions_working_dir: "./gcp"
           tf_actions_subcommand: plan
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY}}
