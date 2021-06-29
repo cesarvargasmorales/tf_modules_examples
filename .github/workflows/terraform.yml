@@ -1,9 +1,13 @@
 name: 'Terraform GitHub Actions'
 on:
-  - pull_request
+  push:
+    branches:
+    - main
+
 env:
   tf_version: 'latest'
   tf_working_dir: './gcp'
+
 jobs:
   terraform:
     name: 'Terraform'
