@@ -1,0 +1,18 @@
+name: 'echo GitHub Actions'
+on:
+  check_run:
+    types: [rerequested, completed]
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  BRANCH_NAME: "main"
+
+jobs:
+  terraform:
+    name: 'Echo'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello World
+        id: echo_hello
+        run: |
+          echo "Hello World"
