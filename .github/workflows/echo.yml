@@ -1,7 +1,7 @@
 name: 'echo GitHub Actions'
 on:
   check_run:
-    types: [rerequested, completed]
+    types: [completed]
 
 env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
