@@ -46,6 +46,7 @@ jobs:
           tf_actions_subcommand: init
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY}}
+
       - name: "Terraform Validate"
         id: terraform_validate
         uses: ops18/terraform-github-actions@master
@@ -56,6 +57,10 @@ jobs:
           tf_actions_subcommand: validate
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY}} 
+
+      - name: "echo"
+        id: echo_sa
+        run: gcloud iam service-accounts list
       - name: "Terraform Plan"
         id: terraform_plan
         uses: ops18/terraform-github-actions@master
