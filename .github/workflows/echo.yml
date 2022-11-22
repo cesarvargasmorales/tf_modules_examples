@@ -1,18 +1,57 @@
-name: 'echo GitHub Actions'
-on:
-  check_run:
-    types: [completed]
+#name: 'echo GitHub Actions'
+#on:
+#  check_run:
+#    types: [completed]
+#
+#env:
+#  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+#  BRANCH_NAME: "main"
+#
+#jobs:
+#  terraform:
+#    name: 'Echo'
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Hello World
+#        if:
+#        id: echo_hello
+#        run: |
+#          echo "Hello World"
 
-env:
-  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-  BRANCH_NAME: "main"
+
+name: webhook-trigger
+
+on:
+  repository_dispatch:
+    types: 
+      - webhook-one
+      - webhook-two
 
 jobs:
-  terraform:
-    name: 'Echo'
+  build:
+    name: build
     runs-on: ubuntu-latest
     steps:
-      - name: Hello World
-        id: echo_hello
-        run: |
-          echo "Hello World"
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1.4.2
+      with:
+        node-version: '12'
+
+    - name: Hello
+      run: echo "Hello, I've been triggered by a webhook!"
+
+    - name: Event Name
+      run: |
+        echo "Event triggered by $GITHUB_EVENT_NAME"
+        echo "Dispatch type ${{ github.event.action }}"
+
+    - name: Goodbye
+      if: ${{ github.event.action == 'webhook-one' }}
+      run: npx cowsay "Bye!"
+      
+    - name: Adiós
+      if: ${{ github.event.action == 'webhook-two' }}
+      run: npx cowsay "Adiós!"
